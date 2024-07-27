@@ -4,18 +4,14 @@ import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:matematica/elementos/myAppBar.dart';
 
-void main() {
-  runApp(const Multiplicacao());
-}
-
-class Multiplicacao extends StatefulWidget {
-  const Multiplicacao({super.key});
+class TabuadaSubtracao extends StatefulWidget {
+  const TabuadaSubtracao({super.key});
 
   @override
-  State<Multiplicacao> createState() => _MultiplicacaoState();
+  State<TabuadaSubtracao> createState() => _TabuadaSubtracaoState();
 }
 
-class _MultiplicacaoState extends State<Multiplicacao> {
+class _TabuadaSubtracaoState extends State<TabuadaSubtracao> {
   // instancia do Random para calculo de números aleatórios
   Random rand = Random();
 
@@ -51,8 +47,8 @@ class _MultiplicacaoState extends State<Multiplicacao> {
 
   void _receberValores() {
     setState(() {
-      _primeiroValor = rand.nextInt(500000) + 123;
-      _segundoValor = rand.nextInt(1000);
+      _primeiroValor = rand.nextInt(11);
+      _segundoValor = rand.nextInt(11);
     });
   }
 
@@ -60,7 +56,7 @@ class _MultiplicacaoState extends State<Multiplicacao> {
     listaWidgets1 = [];
     listaWidgets2 = [];
     // recebe os valores para as opções
-    _resposta = _primeiroValor * _segundoValor;
+    _resposta = _primeiroValor - _segundoValor;
     _respostaErrada1 = _resposta - _gerarRespostasErradas(rand.nextInt(10));
     _respostaErrada2 = _resposta - _gerarRespostasErradas(rand.nextInt(10));
     _respostaErrada3 = _resposta - _gerarRespostasErradas(rand.nextInt(10));
@@ -157,31 +153,22 @@ class _MultiplicacaoState extends State<Multiplicacao> {
     int respostaErrada;
     switch (opcaoDiferenca) {
       case 0:
-        respostaErrada = 130;
-        break;
-      case 1:
-        respostaErrada = 1223;
-        break;
-      case 2:
-        respostaErrada = 8964;
-        break;
-      case 3:
-        respostaErrada = 9912;
-        break;
-      case 4:
-        respostaErrada = 13;
-        break;
-      case 5:
-        respostaErrada = 65;
-        break;
-      case 6:
         respostaErrada = 1;
         break;
-      case 7:
-        respostaErrada = 8351;
+      case 1:
+        respostaErrada = 2;
         break;
-      case 8:
-        respostaErrada = 5114;
+      case 2:
+        respostaErrada = 3;
+        break;
+      case 3:
+        respostaErrada = 4;
+        break;
+      case 4:
+        respostaErrada = 5;
+        break;
+      case 5:
+        respostaErrada = 6;
         break;
       default:
         respostaErrada = 7;
@@ -193,7 +180,7 @@ class _MultiplicacaoState extends State<Multiplicacao> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: const MyAppBar(titulo: "Adição"),
+      appBar: const MyAppBar(titulo: "Subtração"),
       body: Stack(
         children: [
           // elementos flutuando na tela com a contagem de acertos e erros
@@ -233,7 +220,7 @@ class _MultiplicacaoState extends State<Multiplicacao> {
                         ),
                       ),
                       Text(
-                        "* ${_segundoValor.toString()}",
+                        "- ${_segundoValor.toString()}",
                         textAlign: TextAlign.end,
                         style: const TextStyle(
                           fontSize: 35,

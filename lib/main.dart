@@ -1,9 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:matematica/telas/adicao.dart';
-import 'package:matematica/telas/divisao.dart';
+import 'package:matematica/telas/questoes/adicao.dart';
+import 'package:matematica/telas/questoes/divisao.dart';
+import 'package:matematica/telas/questoes/multiplicacao.dart';
+import 'package:matematica/telas/questoes/subtracao.dart';
 import 'package:matematica/telas/home.dart';
-import 'package:matematica/telas/multiplica%C3%A7%C3%A3o.dart';
-import 'package:matematica/telas/subtracao.dart';
+import 'package:matematica/telas/tabuada/adicao.dart';
+import 'package:matematica/telas/tabuada/divisao.dart';
+import 'package:matematica/telas/tabuada/multiplicacao.dart';
+import 'package:matematica/telas/tabuada/subtracao.dart';
 
 void main() {
   runApp(const MyApp());
@@ -28,6 +32,10 @@ class MyApp extends StatelessWidget {
         'subtracao': (context) => const Subtracao(),
         'multiplicacao': (context) => const Multiplicacao(),
         'divisao': (context) => const Divisao(),
+        'tabuada_adicao': (context) => const TabuadaAdicao(),
+        'tabuada_subtracao': (context) => const TabuadaSubtracao(),
+        'tabuada_multiplicacao': (context) => const TabuadaMultiplicacao(),
+        'tabuada_divisao': (context) => const TabuadaDivisao(),
       },
     );
   }
